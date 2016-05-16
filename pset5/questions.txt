@@ -1,0 +1,36 @@
+0.  pneumonoultramicroscopicsilicovolcanoconiosis referes to a lung disease
+and is the longest word in the English language.
+1.  getrusage returns usage measures
+2.  16 members are in struct getrusage
+3.  Passing before and after to calculate by reference instead of by value
+(making copies) saves time and memory because struct rusage has many fields,
+each of which would need to be copied, which is resource intensive.
+4.  The integer variable "index" is used to keep track of where we are in a 
+word. "words" keeps track of the number of words we have found. "misspellings"
+keeps track of the number of misspellings. The initial for loop reads in 
+characters from the file with fgetc, so long as we have not reached the end of 
+the file. It then checks that the character is alphabetic or (if it is not the 
+first character) an apostrophe. If it is, it inserts the character into the
+string "word" at index "index." It then makes sure we are not creating too long
+an array for word by setting the index to 0 when the word length exceeds the
+max length defined globally. Similarly, it ignores words with numbers by
+checking if a character is a number and setting the index to 0 until the word
+ends. Once a word is found (the index > 0 and no invalid characters, and the
+next character is not alphabetic or an apostrophe or a number), we set the
+index to /0 to end the current word, increment the word counter, and check the 
+spelling using mispelled. Then we update the benchmarks by assigning to 
+time_check its previous value plus the value of calculate(after, before) and
+print misspellings. The index is set to 0 to start each word.
+5.  fscanf reads whole strings, whereas fgetc allows us to read in char by char,
+which makes it easier to disqualify invalid words (commas, numbers, etc.)
+6.  Check and load are declared as const char* because they should not be 
+modified.
+7.  I created a hash table, which is an array of pointers to nodes, each of 
+which contains a "word" field, which contains a word loaded from the dictionary, 
+and a "next" field, which points to the next node in the linked list.
+8.  The code was fast from the outset, because I researched hashing functions
+and implemented a fast one the first time.
+9.  I did not make any changes to improve performance. The code already nearly
+equals the staff implementation.
+10. The program doesn't spend an inordinate amount of time in any of its
+subroutines.

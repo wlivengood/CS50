@@ -1,0 +1,36 @@
+0.  BMP - 4 billion + (32 bit color); GIF - 256 (8 bit color); JPEG and PNG  - 
+16 million + (24 bit color)
+1.  GIF
+2.  Lossless compression reduces file size but preserves a perfect image.
+Lossy compression reduces file size at the expense of some amount of image
+perfection. Lossy compression usually leads to smaller files than lossless.
+3.  JPEG
+4.  The first character of the file is changed to signal the file has been
+deleted and the directory can be reused. The operating system moves the file's
+FAT clusters to the hard drive's list of free clusters. The file itself is
+not deleted.
+5.  Use a file sanitizer
+6.  bmp.h is a header file that provides typedefs for exact-width integer types
+7.  This gets around the problem of C loosely defining its data types by 
+aliasing integer types of an exact length
+8.  BYTE = 1 byte; DWORD & LONG = 4 bytes; WORD = 2 bytes
+9.  The first two bytes of any bmp file must be 0x4d42
+10. bfSize is the size of the bitmap file header. biSize is the size of the
+bitmap info header
+10. biSize is the size of the structure (bitmapinfoheader plus color table) in
+bytes. bfSize is the size of the bmp file
+11. If biHeight is negative, the bmp is a top-down DIB, and its origin is in
+the upper left hand corner
+12. biBitCount specifies color depth
+13. fopen might return NULL if the file doesn't exist or you don't have
+the right permissions
+14. The third argument to fread is always 1 becuase the data elements we are
+reading in are 1 byte long
+15. Since RGBTRIPLE is defined as being 3 bytes long, 
+(4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4 = (4 - (3 * 3) % 4) % 4
+= (4 - 9 % 4) % 4 = (4 - 1) % 4 = 3 % 4 = 3
+16. fseek allows us to offset the position in the file by a certain amount of
+bytes, from a certain point in the file (beginning, current, or end)
+17. SEEK_CUR refers to our current position in the file
+18. Hard to tell exactly whodunit. The face is male, probably either David
+Malan or Jason Hirschhorn.
